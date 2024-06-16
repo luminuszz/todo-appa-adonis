@@ -1,0 +1,15 @@
+services:
+  database:
+    container_name: ingresso_db
+    image: postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+     - ./data:/var/lib/postgresql/data
+
